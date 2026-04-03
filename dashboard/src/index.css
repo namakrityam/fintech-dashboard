@@ -1,0 +1,190 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 20% 97%;
+    --foreground: 220 25% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 25% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 25% 10%;
+
+    --primary: 230 65% 52%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 14% 94%;
+    --secondary-foreground: 220 25% 10%;
+
+    --muted: 220 14% 94%;
+    --muted-foreground: 220 10% 46%;
+
+    --accent: 220 14% 94%;
+    --accent-foreground: 220 25% 10%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 152 60% 40%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+
+    --info: 210 100% 50%;
+    --info-foreground: 0 0% 100%;
+
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 230 65% 52%;
+
+    --radius: 0.625rem;
+
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 220 10% 40%;
+    --sidebar-primary: 230 65% 52%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 14% 96%;
+    --sidebar-accent-foreground: 220 25% 10%;
+    --sidebar-border: 220 13% 93%;
+    --sidebar-ring: 230 65% 52%;
+
+    --chart-1: 230 65% 52%;
+    --chart-2: 152 60% 40%;
+    --chart-3: 38 92% 50%;
+    --chart-4: 280 60% 55%;
+    --chart-5: 350 65% 55%;
+
+    --glass: 0 0% 100% / 0.7;
+    --glass-border: 220 13% 91% / 0.5;
+  }
+
+  .dark {
+    --background: 224 25% 8%;
+    --foreground: 220 15% 90%;
+
+    --card: 224 20% 11%;
+    --card-foreground: 220 15% 90%;
+
+    --popover: 224 20% 11%;
+    --popover-foreground: 220 15% 90%;
+
+    --primary: 230 65% 60%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 224 15% 16%;
+    --secondary-foreground: 220 15% 90%;
+
+    --muted: 224 15% 16%;
+    --muted-foreground: 220 10% 55%;
+
+    --accent: 224 15% 16%;
+    --accent-foreground: 220 15% 90%;
+
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 152 55% 45%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 38 85% 55%;
+    --warning-foreground: 0 0% 100%;
+
+    --border: 224 15% 18%;
+    --input: 224 15% 18%;
+    --ring: 230 65% 60%;
+
+    --sidebar-background: 224 20% 9%;
+    --sidebar-foreground: 220 10% 60%;
+    --sidebar-primary: 230 65% 60%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 224 15% 14%;
+    --sidebar-accent-foreground: 220 15% 90%;
+    --sidebar-border: 224 15% 15%;
+    --sidebar-ring: 230 65% 60%;
+
+    --chart-1: 230 65% 60%;
+    --chart-2: 152 55% 50%;
+    --chart-3: 38 85% 55%;
+    --chart-4: 280 55% 60%;
+    --chart-5: 350 60% 60%;
+
+    --glass: 224 20% 11% / 0.7;
+    --glass-border: 224 15% 18% / 0.5;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  /* Premium number rendering */
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+@layer components {
+  .glass-surface {
+    @apply bg-card/70 backdrop-blur-xl border border-border/50;
+  }
+
+  .metric-card {
+    @apply bg-card rounded-xl border border-border/60 p-5 transition-all duration-300;
+  }
+
+  .metric-card:hover {
+    @apply border-border shadow-sm;
+    transform: translateY(-1px);
+  }
+
+  .section-title {
+    @apply text-sm font-semibold uppercase tracking-wider text-muted-foreground;
+  }
+
+  .value-large {
+    @apply text-2xl font-bold tracking-tight tabular-nums text-foreground;
+  }
+
+  .value-medium {
+    @apply text-lg font-semibold tracking-tight tabular-nums text-foreground;
+  }
+
+  .trend-positive {
+    @apply text-emerald-600 dark:text-emerald-400;
+  }
+
+  .trend-negative {
+    @apply text-red-500 dark:text-red-400;
+  }
+
+  .trend-neutral {
+    @apply text-muted-foreground;
+  }
+}
+
+@layer utilities {
+  .animate-in {
+    animation: animateIn 0.4s ease-out forwards;
+  }
+
+  @keyframes animateIn {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
